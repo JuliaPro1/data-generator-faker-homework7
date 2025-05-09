@@ -11,7 +11,7 @@ public class TestBase {
     @BeforeAll
     public static void testBase() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920*1080";
+        Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
     }
 
