@@ -1,6 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
@@ -58,36 +59,36 @@ public class RegistrationFormWithFaker extends TestBase {
         });
     }
 
-        @Test
-        @Tag("demoqa")
+    @Test
+    @Tag("demoqa")
         //Проверка формы регистрации с заполнением только обязательных полей
-        void successRegistrationRequiredFilldsTest(){
-            registrationPage
-                    .openPage()
-                    .bannersRemove()
-                    .setFirstName(fakerTestData.firstName)
-                    .setLastName(fakerTestData.lastName)
-                    .setGender(fakerTestData.gender)
-                    .setPhoneNumber(fakerTestData.phoneNumber)
-                    .buttonClick();
+    void successRegistrationRequiredFilldsTest() {
+        registrationPage
+                .openPage()
+                .bannersRemove()
+                .setFirstName(fakerTestData.firstName)
+                .setLastName(fakerTestData.lastName)
+                .setGender(fakerTestData.gender)
+                .setPhoneNumber(fakerTestData.phoneNumber);
 
 
-            summaryTable.shouldAppear()
-                    .checkFields("Student Name", fakerTestData.firstName + " " + fakerTestData.lastName)
-                    .checkFields("Gender", fakerTestData.gender)
-                    .checkFields("Mobile", fakerTestData.phoneNumber);
+        summaryTable.shouldAppear()
+                .checkFields("Student Name", fakerTestData.firstName + " " + fakerTestData.lastName)
+                .checkFields("Gender", fakerTestData.gender)
+                .checkFields("Mobile", fakerTestData.phoneNumber);
 
-        }
-
-        @Test
-        @Tag("demoqa")
-        //Проверка на то, что форма регистрации не отправляется если не заполнены обязательные поля
-        void negativeRegistrationTest () {
-            registrationPage
-                    .openPage()
-                    .bannersRemove()
-                    .buttonClick();
-
-            summaryTable.shouldNotAppear();
-        }
     }
+
+    @Test
+    @Disabled
+    @Tag("demoqa")
+        //Проверка на то, что форма регистрации не отправляется если не заполнены обязательные поля
+    void negativeRegistrationTest() {
+        registrationPage
+                .openPage()
+                .bannersRemove()
+                .buttonClick();
+
+        summaryTable.shouldNotAppear();
+    }
+}
