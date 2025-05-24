@@ -1,7 +1,9 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
@@ -20,6 +22,11 @@ public class RegistrationFormWithFaker extends TestBase {
 
     @Test
     @Tag("demoqa")
+    @Feature("Форма регистрации")
+    @Story("Проверка формы регистрации")
+    @Owner("Прохорова Юлия")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Проверка формы регистрации с заполнением всех полей")
         //Проверка формы регистрации с заполнением всех полей
     void successRegistrationAllFilldsTest() {
         step("Открыть форму", () -> {
@@ -61,6 +68,11 @@ public class RegistrationFormWithFaker extends TestBase {
 
     @Test
     @Tag("demoqa")
+    @Feature("Форма регистрации")
+    @Story("Проверка формы регистрации")
+    @Owner("Прохорова Юлия")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Проверка формы регистрации с заполнением только обязательных полей")
         //Проверка формы регистрации с заполнением только обязательных полей
     void successRegistrationRequiredFilldsTest() {
         registrationPage
@@ -80,8 +92,13 @@ public class RegistrationFormWithFaker extends TestBase {
     }
 
     @Test
-    @Disabled
     @Tag("demoqa")
+    @Feature("Форма регистрации")
+    @Story("Проверка формы регистрации")
+    @Owner("Прохорова Юлия")
+    @Severity(SeverityLevel.TRIVIAL)
+    @DisplayName("Проверка на то, что форма регистрации не отправляется если не заполнены обязательные поля")
+    @Disabled("Тест временно задизейблен")
         //Проверка на то, что форма регистрации не отправляется если не заполнены обязательные поля
     void negativeRegistrationTest() {
         registrationPage
